@@ -24,7 +24,7 @@ PrintHelper class extend [
 
 ph := PrintHelper new.
 
-b := Ball new.
+b := Ball newWithCordLength: 10 weight: 50.
 b printNl.
 b getWeight displayOn: stdout.
 ph newline.
