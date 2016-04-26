@@ -2,7 +2,17 @@
 Object subclass: #PrintHelper.
 PrintHelper extend [
     | cr lf |
-    <comment: 'This class helps print things without messing with streams'>
+    <comment: 'This class helps print things without messing with streams.'>
+
+    PrintHelper class [
+        new [
+            | ph |
+            <category: 'instance creation'>
+            ph := super new.
+            ph init.
+            ^ph
+        ]
+    ]
 
     init [
         cr := Character cr.
@@ -12,22 +22,16 @@ PrintHelper extend [
         cr displayOn: stdout. lf displayOn: stdout
     ]
 ]
-PrintHelper class extend [
-    new [
-        | r |
-        <category: 'instance creation'>
-        r := super new.
-        r init.
-        ^r
-    ]
-]
 
 ph := PrintHelper new.
 
-b := Ball newWithCordLength: 10 weight: 50.
-b printNl.
-b getWeight displayOn: stdout.
-ph newline.
+b1 := Ball newWithName: 'b1' cordLength: 10 weight: 50.
+b2 := Ball newWithName: 'b2' cordLength: 20 weight: 20.
+b3 := Ball newWithName: 'b3' cordLength: 50 weight: 10.
+b4 := Ball newWithName: 'b4' cordLength: 10 weight: 50.
+b5 := Ball newWithName: 'b5' cordLength: 10 weight: 50.
+b6 := Ball newWithName: 'b6' cordLength: 10 weight: 50.
 
-'hi there' displayOn: stdout.
+b1 printNl.
+b1 getHeight displayOn: stdout.
 ph newline.

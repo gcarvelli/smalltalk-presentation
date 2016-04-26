@@ -1,7 +1,7 @@
 
 Object subclass: #Mobile.
 Mobile extend [
-    | cordlength |
+    | name cordLength |
     <comment: 'This is a rotating mobile.'>
 
     Mobile class [
@@ -13,9 +13,10 @@ Mobile extend [
         ]
     ]
 
-    initWithCordLength: cl [
+    initWithName: n cordLength: cl [
        <category: 'initialization'>
-       cordlength := cl
+       name := n.
+       cordLength := cl
     ]
     getWeight [
         self subclassResponsibility
@@ -34,34 +35,36 @@ Ball extend [
     <comment: 'This is a ball.'>
 
     Ball class [
-        newWithCordLength: cl weight: w [
+        newWithName: n cordLength: cl weight: w [
             | b |
             <category: 'instance creation'>
             b := super new.
-            b initWithCordLength: cl weight: w.
+            b initWithName: n cordLength: cl weight: w.
             ^b
         ]
     ]
 
-    initWithCordLength: cl weight: w [
+    initWithName: n cordLength: cl weight: w [
         <category: 'initialization'>
         weight := w.
-        ^super initWithCordLength: cl
+        ^super initWithName: n cordLength: cl
     ]
     getWeight [
         ^weight
     ]
     getHeight [
-        ^(weight + cordlength)
+        ^(weight + cordLength)
     ]
     isBalanced [
         ^true
     ]
     printOn: stream [
         <category: 'printing'>
-        stream nextPutAll: 'Ball. cl:'.
-        cordlength printOn: stream.
+        stream nextPutAll: 'name:'.
+        name displayOn: stream.
+        stream nextPutAll: ' cl:'.
+        cordLength printOn: stream.
         stream nextPutAll: ' w:'.
-        weight printOn:stream
+        weight printOn: stream
     ]
 ]
