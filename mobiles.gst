@@ -77,7 +77,7 @@ Strut extend [
     | leftSide rightSide leftMobile rightMobile |
     <comment: 'This is a mobile.'>
 
-    Mobile class [
+    Strut class [
         newWithName: n cordLength: cl leftSide: ls rightSide: rs leftMobile: lm rightMobile: rm [
             | s |
             <category: 'instance creation'>
@@ -96,7 +96,7 @@ Strut extend [
         ^super initWithName: n cordLength: cl
     ]
     getWeight [
-        ^0
+        ^(leftMobile getWeight + rightMobile getWeight)
     ]
     getHeight [
         ^0
