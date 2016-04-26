@@ -55,6 +55,9 @@ Ball extend [
     getHeight [
         ^(weight + cordLength)
     ]
+    getWidth [
+        ^weight
+    ]
     isBalanced [
         ^true
     ]
@@ -66,5 +69,49 @@ Ball extend [
         cordLength printOn: stream.
         stream nextPutAll: ' w:'.
         weight printOn: stream
+    ]
+]
+
+Mobile subclass: #Strut.
+Strut extend [
+    | leftSide rightSide leftMobile rightMobile |
+    <comment: 'This is a mobile.'>
+
+    Mobile class [
+        newWithName: n cordLength: cl leftSide: ls rightSide: rs leftMobile: lm rightMobile: rm [
+            | s |
+            <category: 'instance creation'>
+            s := super new.
+            s initWithName: n cordLength: cl leftSide: ls rightSide: rs leftMobile: lm rightMobile: rm.
+            ^s
+        ]
+    ]
+
+    initWithName: n cordLength: cl leftSide: ls rightSide: rs leftMobile: lm rightMobile: rm [
+        <category: 'initialization'>
+        leftSide := ls.
+        rightSide := rs.
+        leftMobile := lm.
+        rightMobile := rm.
+        ^super initWithName: n cordLength: cl
+    ]
+    getWeight [
+        ^0
+    ]
+    getHeight [
+        ^0
+    ]
+    getWidth [
+        ^0
+    ]
+    isBalanced [
+        ^false
+    ]
+    printOn: stream [
+        <category: 'printing'>
+        stream nextPutAll: 'name:'.
+        name displayOn: stream.
+        stream nextPutAll: ' cl:'.
+        cordLength printOn: stream.
     ]
 ]
