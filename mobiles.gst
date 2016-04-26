@@ -99,7 +99,11 @@ Strut extend [
         ^(leftMobile getWeight + rightMobile getWeight)
     ]
     getHeight [
-        ^0
+        | leftHeight rightHeight maxHeight |
+        leftHeight := leftMobile getHeight.
+        rightHeight := rightMobile getHeight.
+        maxHeight := leftHeight max: rightHeight.
+        ^maxHeight + cordLength
     ]
     getWidth [
         ^0
