@@ -109,7 +109,12 @@ Strut extend [
         ^0
     ]
     isBalanced [
-        ^false
+        | leftTorque rightTorque leftBalanced rightBalanced |
+        leftTorque := leftMobile getWeight * leftSide.
+        rightTorque := rightMobile getWeight * rightSide.
+        leftBalanced := leftMobile isBalanced.
+        rightBalanced := rightMobile isBalanced.
+        ^leftBalanced and: [rightBalanced and: [leftTorque = rightTorque]]
     ]
     printOn: stream [
         <category: 'printing'>

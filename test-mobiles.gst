@@ -37,15 +37,14 @@ s2 := Strut newWithName: 's2' cordLength: 50 leftSide: 50 rightSide: 20 leftMobi
 s3 := Strut newWithName: 's3' cordLength: 50 leftSide: 20 rightSide: 20 leftMobile: b4 rightMobile: b5.
 s4 := Strut newWithName: 's4' cordLength: 40 leftSide: 10 rightSide: 20 leftMobile: s3 rightMobile: b6.
 
-b1 printNl.
-b1 getHeight displayOn: stdout.
+b1 isBalanced displayOn: stdout.
+ph newline.
 
-s4 printNl.
-s1 getHeight displayOn: stdout.
+s1 isBalanced displayOn: stdout.
 ph newline.
-s2 getHeight displayOn: stdout.
+s2 isBalanced displayOn: stdout.
 ph newline.
-s3 getHeight displayOn: stdout.
+s3 isBalanced displayOn: stdout.
 ph newline.
-s4 getHeight displayOn: stdout.
+s4 isBalanced displayOn: stdout.
 ph newline.
