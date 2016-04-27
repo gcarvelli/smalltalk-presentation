@@ -24,6 +24,12 @@ Mobile extend [
     getHeight [
         self subclassResponsibility
     ]
+    widestSide [
+        self subclassResponsibility
+    ]
+    getWidth [
+        self subclassResponsibility
+    ]
     isBalanced [
         self subclassResponsibility
     ]
@@ -49,11 +55,15 @@ Ball extend [
         weight := w.
         ^super initWithName: n cordLength: cl
     ]
+
     getWeight [
         ^weight
     ]
     getHeight [
         ^(weight + cordLength)
+    ]
+    widestSide [
+        ^weight / 2.0
     ]
     getWidth [
         ^weight
@@ -105,15 +115,24 @@ Strut extend [
         maxHeight := leftHeight max: rightHeight.
         ^maxHeight + cordLength
     ]
+    widestSide [
+        | widestLeft widestRight |
+        widestLeft := leftMobile widestSide + leftSide.
+        widestRight := rightMobile widestSide + rightSide.
+        ^widestLeft max: widestRight
+    ]
     getWidth [
-        ^0
+        ^self widestSide * 2
     ]
     isBalanced [
         | leftTorque rightTorque leftBalanced rightBalanced |
+        "calculate torques"
         leftTorque := leftMobile getWeight * leftSide.
         rightTorque := rightMobile getWeight * rightSide.
+        "make sure children are balanced"
         leftBalanced := leftMobile isBalanced.
         rightBalanced := rightMobile isBalanced.
+
         ^leftBalanced and: [rightBalanced and: [leftTorque = rightTorque]]
     ]
     printOn: stream [
