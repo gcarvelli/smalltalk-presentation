@@ -22,4 +22,6 @@ Person extend [
     ]
 ]
 
-p := Person newWithName: 'Stephen Kim' age: '20'
+p := Person newWithName: 'Stephen Kim' age: '20'.
+
+Transcript show: p getName ; cr.
