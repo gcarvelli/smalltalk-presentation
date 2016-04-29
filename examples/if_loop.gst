@@ -9,9 +9,9 @@ Transcript cr.
 Transcript cr.
 
 
-" Loops and Lambdas "
 lst := #(1 2 3 4).
 lst do: [ :i |
-    i printOn: stdout.
-    Transcript cr.
+    x := i
 ].
+
+y := x "y will have value 4"

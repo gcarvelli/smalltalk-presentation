@@ -11,14 +11,17 @@ s2 := Strut newWithName: 's2' cordLength: 50 leftSide: 50 rightSide: 20 leftMobi
 s3 := Strut newWithName: 's3' cordLength: 50 leftSide: 20 rightSide: 20 leftMobile: b4 rightMobile: b5.
 s4 := Strut newWithName: 's4' cordLength: 40 leftSide: 10 rightSide: 20 leftMobile: s3 rightMobile: b6.
 
-b1 getWidth displayOn: stdout.
-Transcript cr.
 
-s1 getWidth displayOn: stdout.
-Transcript cr.
-s2 getWidth displayOn: stdout.
-Transcript cr.
-s3 getWidth displayOn: stdout.
-Transcript cr.
-s4 getWidth displayOn: stdout.
-Transcript cr.
+b1 printOn: stdout. Transcript cr.
+b2 printOn: stdout. Transcript cr.
+s1 printOn: stdout. Transcript cr.
+
+'Is s1 balanced? ' displayOn: stdout.
+s1 isBalanced printOn: stdout. Transcript cr.
+
+b4 printOn: stdout. Transcript cr.
+b5 printOn: stdout. Transcript cr.
+s3 printOn: stdout. Transcript cr.
+
+'Is s3 balanced? ' displayOn: stdout.
+s3 isBalanced printOn: stdout. Transcript cr.
